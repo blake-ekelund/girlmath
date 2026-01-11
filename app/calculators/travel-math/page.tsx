@@ -69,7 +69,7 @@ export default function TravelMathCalculator() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 relative">
+    <div className="min-h-screen bg-white relative">
       <Nav />
 
       <main className="max-w-md mx-auto px-4 pt-24 pb-16 space-y-10">
@@ -80,14 +80,14 @@ export default function TravelMathCalculator() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4"
         >
-          <div className="flex items-center justify-center gap-2 text-zinc-900">
-            <Plane className="h-5 w-5" />
+          <div className="flex items-center justify-center gap-2 text-[#000000]">
+            <Plane className="h-5 w-5 text-[#9929EA]" />
             <span className="text-sm font-semibold tracking-wide uppercase">
               travel math
             </span>
           </div>
 
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
+          <h1 className="text-3xl font-semibold tracking-tight text-[#000000]">
             It’s not a trip.
             <br />
             It’s an experience.
@@ -121,7 +121,13 @@ export default function TravelMathCalculator() {
                 setCostRaw(num);
                 setCostDisplay(formatCurrencyNoCents(num));
               }}
-              className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-black"
+              className="
+                w-full rounded-xl
+                border border-black/20
+                px-4 py-3 text-lg
+                focus:outline-none
+                focus:ring-2 focus:ring-[#FF5FCF]
+              "
             />
           </div>
 
@@ -146,14 +152,20 @@ export default function TravelMathCalculator() {
                 setDaysRaw(num);
                 setDaysDisplay(num.toLocaleString("en-US"));
               }}
-              className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-black"
+              className="
+                w-full rounded-xl
+                border border-black/20
+                px-4 py-3 text-lg
+                focus:outline-none
+                focus:ring-2 focus:ring-[#FF5FCF]
+              "
             />
           </div>
 
           {/* Special trip */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-zinc-700 flex items-center gap-1">
-              <Sparkles className="h-4 w-4" />
+              <Sparkles className="h-4 w-4 text-[#9929EA]" />
               Was this a special trip?
             </label>
             <div className="flex gap-3">
@@ -166,11 +178,14 @@ export default function TravelMathCalculator() {
                     key={option}
                     type="button"
                     onClick={() => setSpecial(value)}
-                    className={`flex-1 rounded-full border px-4 py-3 text-sm font-medium transition ${
-                      active
-                        ? "bg-black text-white border-black"
-                        : "bg-white text-zinc-700 border-zinc-300 hover:border-zinc-400"
-                    }`}
+                    className={`
+                      flex-1 rounded-full border px-4 py-3 text-sm font-medium transition
+                      ${
+                        active
+                          ? "bg-[#FF5FCF] text-white border-[#FF5FCF]"
+                          : "bg-white text-[#000000] border-black/20 hover:border-black/40"
+                      }
+                    `}
                   >
                     {option}
                   </button>
@@ -183,7 +198,12 @@ export default function TravelMathCalculator() {
           <motion.button
             whileTap={{ scale: 0.97 }}
             onClick={() => setSubmitted(true)}
-            className="w-full rounded-full bg-black text-white py-4 text-lg font-medium hover:bg-zinc-800 transition"
+            className="
+              w-full rounded-full
+              bg-[#000000] text-white
+              py-4 text-lg font-medium
+              hover:opacity-90 transition
+            "
           >
             Do the travel math
           </motion.button>
@@ -197,15 +217,20 @@ export default function TravelMathCalculator() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="rounded-2xl bg-white border border-zinc-200 p-6 space-y-4 text-center"
+              className="
+                rounded-2xl
+                bg-[#FAEB92]
+                border border-black/20
+                p-6 space-y-4 text-center
+              "
             >
-              <div className="text-4xl font-semibold text-zinc-900">
+              <div className="text-4xl font-semibold text-[#FF5FCF]">
                 {formatCurrency(girlMathCostPerDay)}
               </div>
 
-              <p className="text-zinc-600 text-lg">per day.</p>
+              <p className="text-black/70 text-lg">per day.</p>
 
-              <p className="font-medium text-zinc-900">
+              <p className="font-medium text-[#000000]">
                 {special
                   ? "You’re not spending money. You’re collecting memories."
                   : "That’s a small price for a good story."}
@@ -213,7 +238,7 @@ export default function TravelMathCalculator() {
 
               <button
                 onClick={shareMath}
-                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 transition"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-black/70 hover:text-black transition"
               >
                 <Share2 className="h-4 w-4" />
                 Share the math

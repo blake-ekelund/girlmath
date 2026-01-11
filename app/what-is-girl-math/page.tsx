@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function WhatIsGirlMathPage() {
   return (
-    <div className="min-h-screen bg-zinc-50 relative">
+    <div className="min-h-screen bg-white relative">
       <Nav />
 
       <main className="max-w-md mx-auto px-4 pt-24 pb-16 space-y-10">
@@ -18,14 +18,14 @@ export default function WhatIsGirlMathPage() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4"
         >
-          <div className="flex items-center justify-center gap-2 text-zinc-900">
-            <Sparkles className="h-5 w-5" />
+          <div className="flex items-center justify-center gap-2 text-[#000000]">
+            <Sparkles className="h-5 w-5 text-[#9929EA]" />
             <span className="text-sm font-semibold tracking-wide uppercase">
               girl math
             </span>
           </div>
 
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
+          <h1 className="text-3xl font-semibold tracking-tight text-[#000000]">
             What is girl math?
           </h1>
         </motion.div>
@@ -39,7 +39,7 @@ export default function WhatIsGirlMathPage() {
         >
           <p>
             Girl math is the art of reframing a purchase until it feels
-            financially responsible.
+            <span className="text-[#FF5FCF] font-medium"> financially responsible</span>.
           </p>
 
           <p>
@@ -48,17 +48,22 @@ export default function WhatIsGirlMathPage() {
           </p>
 
           <p>
-            If something was on sale, it was basically free. If you’ll use it a
-            lot, it’s an investment. If it makes you happy, it doesn’t count.
+            If something was on sale, it was
+            <span className="text-[#FF5FCF] font-medium"> basically free</span>.
+            If you’ll use it a lot, it’s an investment. If it makes you happy,
+            it doesn’t count.
           </p>
 
           <p>
             Girl math doesn’t ask <em>“Can I afford this?”</em>
             <br />
-            It asks <em>“Will this improve my quality of life immediately?”</em>
+            It asks{" "}
+            <em className="text-[#9929EA]">
+              “Will this improve my quality of life immediately?”
+            </em>
           </p>
 
-          <p className="font-medium text-zinc-900">
+          <p className="font-medium text-[#000000]">
             And the answer is usually yes.
           </p>
         </motion.div>
@@ -72,7 +77,13 @@ export default function WhatIsGirlMathPage() {
         >
           <Link
             href="/calculators"
-            className="w-full rounded-full bg-black text-white py-4 text-lg font-medium flex items-center justify-center gap-2 hover:bg-zinc-800 transition"
+            className="
+              w-full rounded-full
+              bg-[#FF5FCF] text-white
+              py-4 text-lg font-medium
+              flex items-center justify-center gap-2
+              hover:opacity-90 transition
+            "
           >
             <Calculator className="h-5 w-5" />
             Do the Girl Math

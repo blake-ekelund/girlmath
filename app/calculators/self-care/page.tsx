@@ -57,7 +57,7 @@ export default function SelfCareMathCalculator() {
       : null;
 
   return (
-    <div className="min-h-screen bg-zinc-50 relative">
+    <div className="min-h-screen bg-white relative">
       <Nav />
 
       <main className="max-w-md mx-auto px-4 pt-24 pb-16 space-y-10">
@@ -68,14 +68,14 @@ export default function SelfCareMathCalculator() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4"
         >
-          <div className="flex items-center justify-center gap-2 text-zinc-900">
-            <Heart className="h-5 w-5" />
+          <div className="flex items-center justify-center gap-2 text-[#000000]">
+            <Heart className="h-5 w-5 text-[#9929EA]" />
             <span className="text-sm font-semibold tracking-wide uppercase">
               self-care math
             </span>
           </div>
 
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
+          <h1 className="text-3xl font-semibold tracking-tight text-[#000000]">
             This isn’t extra.
             <br />
             This is required.
@@ -109,7 +109,13 @@ export default function SelfCareMathCalculator() {
                 setCostRaw(num);
                 setCostDisplay(formatCurrencyNoCents(num));
               }}
-              className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-black"
+              className="
+                w-full rounded-xl
+                border border-black/20
+                px-4 py-3 text-lg
+                focus:outline-none
+                focus:ring-2 focus:ring-[#FF5FCF]
+              "
             />
           </div>
 
@@ -128,11 +134,14 @@ export default function SelfCareMathCalculator() {
                   key={s.value}
                   type="button"
                   onClick={() => setStress(s.value as any)}
-                  className={`flex-1 rounded-full border px-4 py-3 text-sm font-medium transition ${
-                    stress === s.value
-                      ? "bg-black text-white border-black"
-                      : "bg-white text-zinc-700 border-zinc-300 hover:border-zinc-400"
-                  }`}
+                  className={`
+                    flex-1 rounded-full border px-4 py-3 text-sm font-medium transition
+                    ${
+                      stress === s.value
+                        ? "bg-[#FF5FCF] text-white border-[#FF5FCF]"
+                        : "bg-white text-[#000000] border-black/20 hover:border-black/40"
+                    }
+                  `}
                 >
                   {s.label}
                 </button>
@@ -143,7 +152,7 @@ export default function SelfCareMathCalculator() {
           {/* Helps mental health */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-zinc-700 flex items-center gap-1">
-              <Sparkles className="h-4 w-4" />
+              <Sparkles className="h-4 w-4 text-[#9929EA]" />
               Does this help your mental health?
             </label>
             <div className="flex gap-3">
@@ -156,11 +165,14 @@ export default function SelfCareMathCalculator() {
                     key={option}
                     type="button"
                     onClick={() => setHelps(value)}
-                    className={`flex-1 rounded-full border px-4 py-3 text-sm font-medium transition ${
-                      active
-                        ? "bg-black text-white border-black"
-                        : "bg-white text-zinc-700 border-zinc-300 hover:border-zinc-400"
-                    }`}
+                    className={`
+                      flex-1 rounded-full border px-4 py-3 text-sm font-medium transition
+                      ${
+                        active
+                          ? "bg-[#FF5FCF] text-white border-[#FF5FCF]"
+                          : "bg-white text-[#000000] border-black/20 hover:border-black/40"
+                      }
+                    `}
                   >
                     {option}
                   </button>
@@ -173,7 +185,12 @@ export default function SelfCareMathCalculator() {
           <motion.button
             whileTap={{ scale: 0.97 }}
             onClick={() => setSubmitted(true)}
-            className="w-full rounded-full bg-black text-white py-4 text-lg font-medium hover:bg-zinc-800 transition"
+            className="
+              w-full rounded-full
+              bg-[#000000] text-white
+              py-4 text-lg font-medium
+              hover:opacity-90 transition
+            "
           >
             Do the self-care math
           </motion.button>
@@ -187,19 +204,24 @@ export default function SelfCareMathCalculator() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="rounded-2xl bg-white border border-zinc-200 p-6 space-y-4 text-center"
+              className="
+                rounded-2xl
+                bg-[#FAEB92]
+                border border-black/20
+                p-6 space-y-4 text-center
+              "
             >
-              <div className="text-sm text-zinc-500">
+              <div className="text-sm text-black/60">
                 You spent {formatCurrencyNoCents(costRaw!)}.
               </div>
 
-              <p className="text-xl font-semibold text-zinc-900">
+              <p className="text-xl font-semibold text-[#FF5FCF]">
                 {verdict}
               </p>
 
               <button
                 onClick={shareMath}
-                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 transition"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-black/70 hover:text-black transition"
               >
                 <Share2 className="h-4 w-4" />
                 Share the math

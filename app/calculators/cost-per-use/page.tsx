@@ -57,38 +57,25 @@ export default function CostPerUseCalculator() {
   // Girl math compounding
   let girlMathCost = baseCost;
 
-  if (girlMathCost && onSale) {
-    girlMathCost *= 0.85; // on sale → less guilt
-  }
-
-  if (girlMathCost && savingsRaw && savingsRaw > 0) {
-    girlMathCost *= 0.9; // savings → you’re smart
-  }
+  if (girlMathCost && onSale) girlMathCost *= 0.85;
+  if (girlMathCost && savingsRaw && savingsRaw > 0) girlMathCost *= 0.9;
 
   function shareMath() {
     const url = window.location.href;
     const text =
       onSale && savingsRaw
-        ? `I did the girl math and saved ${formatCurrencyNoCents(
-            savingsRaw
-          )}.`
+        ? `I did the girl math and saved ${formatCurrencyNoCents(savingsRaw)}.`
         : "I did the girl math and it checks out.";
 
     if (navigator.share) {
-      navigator
-        .share({
-          title: "Girl Math",
-          text,
-          url,
-        })
-        .catch(() => {});
+      navigator.share({ title: "Girl Math", text, url }).catch(() => {});
     } else {
       navigator.clipboard.writeText(url);
     }
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 relative">
+    <div className="min-h-screen bg-white relative">
       <Nav />
 
       <main className="max-w-md mx-auto px-4 pt-24 pb-16 space-y-10">
@@ -99,14 +86,14 @@ export default function CostPerUseCalculator() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4"
         >
-          <div className="flex items-center justify-center gap-2 text-zinc-900">
-            <Calculator className="h-5 w-5" />
+          <div className="flex items-center justify-center gap-2 text-[#000000]">
+            <Calculator className="h-5 w-5 text-[#9929EA]" />
             <span className="text-sm font-semibold tracking-wide uppercase">
               cost per use
             </span>
           </div>
 
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
+          <h1 className="text-3xl font-semibold tracking-tight text-[#000000]">
             Let’s break it down
           </h1>
 
@@ -138,7 +125,13 @@ export default function CostPerUseCalculator() {
                 setPriceRaw(num);
                 setPriceDisplay(formatCurrencyNoCents(num));
               }}
-              className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-black"
+              className="
+                w-full rounded-xl
+                border border-black/20
+                px-4 py-3 text-lg
+                focus:outline-none
+                focus:ring-2 focus:ring-[#FF5FCF]
+              "
             />
           </div>
 
@@ -163,14 +156,20 @@ export default function CostPerUseCalculator() {
                 setUsesRaw(num);
                 setUsesDisplay(formatNumber(num));
               }}
-              className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-black"
+              className="
+                w-full rounded-xl
+                border border-black/20
+                px-4 py-3 text-lg
+                focus:outline-none
+                focus:ring-2 focus:ring-[#FF5FCF]
+              "
             />
           </div>
 
           {/* On sale */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-zinc-700 flex items-center gap-1">
-              <Tag className="h-4 w-4" />
+              <Tag className="h-4 w-4 text-[#9929EA]" />
               Was it on sale?
             </label>
             <div className="flex gap-3">
@@ -183,11 +182,14 @@ export default function CostPerUseCalculator() {
                     key={option}
                     type="button"
                     onClick={() => setOnSale(value)}
-                    className={`flex-1 rounded-full border px-4 py-3 text-sm font-medium transition ${
-                      active
-                        ? "bg-black text-white border-black"
-                        : "bg-white text-zinc-700 border-zinc-300 hover:border-zinc-400"
-                    }`}
+                    className={`
+                      flex-1 rounded-full border px-4 py-3 text-sm font-medium transition
+                      ${
+                        active
+                          ? "bg-[#FF5FCF] text-white border-[#FF5FCF]"
+                          : "bg-white text-[#000000] border-black/20 hover:border-black/40"
+                      }
+                    `}
                   >
                     {option}
                   </button>
@@ -196,7 +198,7 @@ export default function CostPerUseCalculator() {
             </div>
           </div>
 
-          {/* Savings (conditional) */}
+          {/* Savings */}
           <AnimatePresence>
             {onSale && (
               <motion.div
@@ -224,7 +226,13 @@ export default function CostPerUseCalculator() {
                     setSavingsRaw(num);
                     setSavingsDisplay(formatCurrencyNoCents(num));
                   }}
-                  className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-black"
+                  className="
+                    w-full rounded-xl
+                    border border-black/20
+                    px-4 py-3 text-lg
+                    focus:outline-none
+                    focus:ring-2 focus:ring-[#FF5FCF]
+                  "
                 />
               </motion.div>
             )}
@@ -234,7 +242,12 @@ export default function CostPerUseCalculator() {
           <motion.button
             whileTap={{ scale: 0.97 }}
             onClick={() => setSubmitted(true)}
-            className="w-full rounded-full bg-black text-white py-4 text-lg font-medium hover:bg-zinc-800 transition"
+            className="
+              w-full rounded-full
+              bg-[#000000] text-white
+              py-4 text-lg font-medium
+              hover:opacity-90 transition
+            "
           >
             Do the math
           </motion.button>
@@ -248,21 +261,26 @@ export default function CostPerUseCalculator() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="rounded-2xl bg-white border border-zinc-200 p-6 space-y-4 text-center"
+              className="
+                rounded-2xl
+                bg-[#FAEB92]
+                border border-black/20
+                p-6 space-y-4 text-center
+              "
             >
               {savingsRaw && (
-                <div className="text-sm text-zinc-500">
+                <div className="text-sm text-black/60">
                   You saved {formatCurrencyNoCents(savingsRaw)}.
                 </div>
               )}
 
-              <div className="text-4xl font-semibold text-zinc-900">
+              <div className="text-4xl font-semibold text-[#FF5FCF]">
                 {formatCurrency(girlMathCost)}
               </div>
 
-              <p className="text-zinc-600 text-lg">per use.</p>
+              <p className="text-black/70 text-lg">per use.</p>
 
-              <p className="font-medium text-zinc-900">
+              <p className="font-medium text-[#000000]">
                 {savingsRaw
                   ? "You didn’t spend money. You made a decision."
                   : "That’s basically nothing."}
@@ -270,7 +288,7 @@ export default function CostPerUseCalculator() {
 
               <button
                 onClick={shareMath}
-                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 transition"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-black/70 hover:text-black transition"
               >
                 <Share2 className="h-4 w-4" />
                 Share the math
@@ -278,8 +296,8 @@ export default function CostPerUseCalculator() {
             </motion.div>
           )}
         </AnimatePresence>
-        <CalculatorFooter current="/calculators/cost-per-use" />
 
+        <CalculatorFooter current="/calculators/cost-per-use" />
       </main>
     </div>
   );

@@ -37,7 +37,7 @@ export default function CalculatorFooter({
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
-      className="mt-16 pt-8 border-t border-zinc-200 space-y-4"
+      className="mt-16 pt-8 border-t border-black/10 space-y-4"
     >
       <p className="text-center text-sm text-zinc-500">
         Need more reassurance?
@@ -53,9 +53,19 @@ export default function CalculatorFooter({
               <Link
                 key={calc.href}
                 href={calc.href}
-                className="flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-zinc-400 hover:bg-zinc-50 transition"
+                className="
+                  flex items-center gap-2
+                  rounded-full
+                  border border-black/15
+                  bg-white
+                  px-4 py-2
+                  text-sm font-medium text-[#000000]
+                  hover:bg-[#FAEB92]
+                  hover:border-black/30
+                  transition
+                "
               >
-                <Icon className="h-4 w-4" />
+                <Icon className="h-4 w-4 text-[#9929EA]" />
                 {calc.title}
               </Link>
             );

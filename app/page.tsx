@@ -7,7 +7,7 @@ import Nav from "./components/Nav";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-50 relative overflow-hidden">
+    <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Nav */}
       <Nav />
 
@@ -21,17 +21,17 @@ export default function Home() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="space-y-5"
           >
-            <div className="flex items-center justify-center gap-2 text-zinc-900">
-              <Sparkles className="h-6 w-6" />
+            <div className="flex items-center justify-center gap-2 text-[#000000]">
+              <Sparkles className="h-6 w-6 text-[#9929EA]" />
               <span className="text-sm font-semibold tracking-wide uppercase">
                 girl math
               </span>
             </div>
 
-            <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 leading-tight">
+            <h1 className="text-4xl font-semibold tracking-tight text-[#000000] leading-tight">
               Check your math.
               <br />
-              Respectfully.
+              <span className="text-[#FF5FCF]">Respectfully.</span>
             </h1>
 
             <p className="text-zinc-600 text-lg">
@@ -48,7 +48,13 @@ export default function Home() {
           >
             <Link
               href="/calculators"
-              className="w-full rounded-full bg-black text-white py-4 text-lg font-medium flex items-center justify-center gap-2 hover:bg-zinc-800 transition"
+              className="
+                w-full rounded-full
+                bg-[#FF5FCF] text-white
+                py-4 text-lg font-medium
+                flex items-center justify-center gap-2
+                hover:opacity-90 transition
+              "
             >
               <Calculator className="h-5 w-5" />
               Do the Girl Math
@@ -63,11 +69,11 @@ export default function Home() {
             className="flex justify-center gap-8 text-sm text-zinc-500"
           >
             <span className="flex items-center gap-1">
-              <Sparkles className="h-4 w-4" />
+              <Sparkles className="h-4 w-4 text-[#FF5FCF]" />
               Basically free
             </span>
             <span className="flex items-center gap-1">
-              <Share2 className="h-4 w-4" />
+              <Share2 className="h-4 w-4 text-[#9929EA]" />
               Screenshot-ready
             </span>
           </motion.div>

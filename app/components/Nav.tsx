@@ -32,10 +32,16 @@ export default function Nav() {
       {/* Hamburger */}
       <button
         onClick={() => setOpen(true)}
-        className="fixed top-4 right-4 z-50 rounded-full bg-white p-3 shadow-md hover:bg-zinc-100 transition"
+        className="
+          fixed top-4 right-4 z-50
+          rounded-full bg-white
+          p-3 shadow-md
+          hover:bg-[#FAEB92]
+          transition
+        "
         aria-label="Open menu"
       >
-        <Menu className="h-6 w-6 text-zinc-900" />
+        <Menu className="h-6 w-6 text-[#000000]" />
       </button>
 
       {/* Overlay */}
@@ -50,10 +56,15 @@ export default function Nav() {
             {/* Close */}
             <button
               onClick={() => setOpen(false)}
-              className="absolute top-4 right-4 rounded-full p-3 hover:bg-zinc-100 transition"
+              className="
+                absolute top-4 right-4
+                rounded-full p-3
+                hover:bg-[#FAEB92]
+                transition
+              "
               aria-label="Close menu"
             >
-              <X className="h-6 w-6 text-zinc-900" />
+              <X className="h-6 w-6 text-[#000000]" />
             </button>
 
             {/* Menu items */}
@@ -66,27 +77,45 @@ export default function Nav() {
               <Link
                 href="/calculators"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 text-3xl font-semibold text-zinc-900 hover:opacity-70 transition"
+                className="
+                  flex items-center gap-3
+                  text-3xl font-semibold
+                  text-[#000000]
+                  hover:text-[#FF5FCF]
+                  transition
+                "
               >
-                <Calculator className="h-7 w-7" />
+                <Calculator className="h-7 w-7 text-[#9929EA]" />
                 Calculators
               </Link>
 
               <Link
                 href="/what-is-girl-math"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 text-3xl font-semibold text-zinc-900 hover:opacity-70 transition"
+                className="
+                  flex items-center gap-3
+                  text-3xl font-semibold
+                  text-[#000000]
+                  hover:text-[#FF5FCF]
+                  transition
+                "
               >
-                <Sparkles className="h-7 w-7" />
+                <Sparkles className="h-7 w-7 text-[#9929EA]" />
                 What Is Girl Math?
               </Link>
 
               {/* Share */}
               <button
                 onClick={shareMath}
-                className="flex items-center gap-3 text-3xl font-semibold text-zinc-900 hover:opacity-70 transition"
+                className="
+                  flex items-center gap-3
+                  text-3xl font-semibold
+                  text-[#000000]
+                  hover:text-[#FF5FCF]
+                  transition
+                "
               >
-                <Share2 className="h-7 w-7" />
+                <Share2 className="h-7 w-7 text-[#9929EA]" />
                 Share the Math
               </button>
             </motion.div>

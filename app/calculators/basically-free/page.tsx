@@ -56,7 +56,7 @@ export default function BasicallyFreeCalculator() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-50 relative">
+    <div className="min-h-screen bg-white relative">
       <Nav />
 
       <main className="max-w-md mx-auto px-4 pt-24 pb-16 space-y-10">
@@ -67,14 +67,14 @@ export default function BasicallyFreeCalculator() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4"
         >
-          <div className="flex items-center justify-center gap-2 text-zinc-900">
-            <Sparkles className="h-5 w-5" />
+          <div className="flex items-center justify-center gap-2 text-[#000000]">
+            <Sparkles className="h-5 w-5 text-[#9929EA]" />
             <span className="text-sm font-semibold tracking-wide uppercase">
               basically free
             </span>
           </div>
 
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
+          <h1 className="text-3xl font-semibold tracking-tight text-[#000000]">
             Let’s be honest
           </h1>
 
@@ -106,14 +106,20 @@ export default function BasicallyFreeCalculator() {
                 setPriceRaw(num);
                 setPriceDisplay(formatCurrencyNoCents(num));
               }}
-              className="w-full rounded-xl border border-zinc-300 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-black"
+              className="
+                w-full rounded-xl
+                border border-black/20
+                px-4 py-3 text-lg
+                focus:outline-none
+                focus:ring-2 focus:ring-[#FF5FCF]
+              "
             />
           </div>
 
           {/* Gift card */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-zinc-700 flex items-center gap-1">
-              <Gift className="h-4 w-4" />
+              <Gift className="h-4 w-4 text-[#9929EA]" />
               Did you use a gift card or store credit?
             </label>
             <div className="flex gap-3">
@@ -126,11 +132,14 @@ export default function BasicallyFreeCalculator() {
                     key={opt}
                     type="button"
                     onClick={() => setGiftCard(value)}
-                    className={`flex-1 rounded-full border px-4 py-3 text-sm font-medium transition ${
-                      active
-                        ? "bg-black text-white border-black"
-                        : "bg-white text-zinc-700 border-zinc-300 hover:border-zinc-400"
-                    }`}
+                    className={`
+                      flex-1 rounded-full border px-4 py-3 text-sm font-medium transition
+                      ${
+                        active
+                          ? "bg-[#FF5FCF] text-white border-[#FF5FCF]"
+                          : "bg-white text-[#000000] border-black/20 hover:border-black/40"
+                      }
+                    `}
                   >
                     {opt}
                   </button>
@@ -154,11 +163,14 @@ export default function BasicallyFreeCalculator() {
                     key={opt}
                     type="button"
                     onClick={() => setMentallySpent(value)}
-                    className={`flex-1 rounded-full border px-4 py-3 text-sm font-medium transition ${
-                      active
-                        ? "bg-black text-white border-black"
-                        : "bg-white text-zinc-700 border-zinc-300 hover:border-zinc-400"
-                    }`}
+                    className={`
+                      flex-1 rounded-full border px-4 py-3 text-sm font-medium transition
+                      ${
+                        active
+                          ? "bg-[#FF5FCF] text-white border-[#FF5FCF]"
+                          : "bg-white text-[#000000] border-black/20 hover:border-black/40"
+                      }
+                    `}
                   >
                     {opt}
                   </button>
@@ -171,7 +183,12 @@ export default function BasicallyFreeCalculator() {
           <motion.button
             whileTap={{ scale: 0.97 }}
             onClick={() => setSubmitted(true)}
-            className="w-full rounded-full bg-black text-white py-4 text-lg font-medium hover:bg-zinc-800 transition"
+            className="
+              w-full rounded-full
+              bg-[#000000] text-white
+              py-4 text-lg font-medium
+              hover:opacity-90 transition
+            "
           >
             Do the math
           </motion.button>
@@ -185,23 +202,28 @@ export default function BasicallyFreeCalculator() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="rounded-2xl bg-white border border-zinc-200 p-6 space-y-4 text-center"
+              className="
+                rounded-2xl
+                bg-[#FAEB92]
+                border border-black/20
+                p-6 space-y-4 text-center
+              "
             >
-              <div className="text-sm text-zinc-500">
+              <div className="text-sm text-black/60">
                 You “spent” {formatCurrencyNoCents(priceRaw!)}.
               </div>
 
-              <div className="text-3xl font-semibold text-zinc-900">
+              <div className="text-3xl font-semibold text-[#FF5FCF]">
                 {verdict}.
               </div>
 
-              <p className="font-medium text-zinc-900">
+              <p className="font-medium text-[#000000]">
                 No further discussion is needed.
               </p>
 
               <button
                 onClick={() => shareMath(verdict)}
-                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-zinc-600 hover:text-zinc-900 transition"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-black/70 hover:text-black transition"
               >
                 <Share2 className="h-4 w-4" />
                 Share the math

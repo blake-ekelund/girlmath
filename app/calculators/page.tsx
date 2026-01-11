@@ -39,7 +39,7 @@ const calculators = [
 
 export default function CalculatorsPage() {
   return (
-    <div className="min-h-screen bg-zinc-50 relative">
+    <div className="min-h-screen bg-white relative">
       <Nav />
 
       <main className="max-w-md mx-auto px-4 pt-24 pb-16 space-y-10">
@@ -50,7 +50,7 @@ export default function CalculatorsPage() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4"
         >
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900">
+          <h1 className="text-3xl font-semibold tracking-tight text-[#000000]">
             Choose your math
           </h1>
           <p className="text-zinc-600 text-lg">
@@ -72,15 +72,22 @@ export default function CalculatorsPage() {
               >
                 <Link
                   href={calc.href}
-                  className="block rounded-2xl border border-zinc-200 bg-white p-5 hover:border-zinc-300 hover:shadow-sm transition"
+                  className="
+                    block rounded-2xl
+                    border border-black/10
+                    bg-white p-5
+                    hover:bg-[#FAEB92]
+                    hover:border-black/20
+                    transition
+                  "
                 >
                   <div className="flex items-start gap-4">
-                    <div className="rounded-full bg-zinc-100 p-3">
-                      <Icon className="h-5 w-5 text-zinc-900" />
+                    <div className="rounded-full bg-white p-3 border border-black/10">
+                      <Icon className="h-5 w-5 text-[#9929EA]" />
                     </div>
 
                     <div className="space-y-1">
-                      <h2 className="text-lg font-semibold text-zinc-900">
+                      <h2 className="text-lg font-semibold text-[#000000]">
                         {calc.title}
                       </h2>
                       <p className="text-sm text-zinc-600 leading-relaxed">
@@ -101,7 +108,9 @@ export default function CalculatorsPage() {
           transition={{ delay: 0.5 }}
           className="text-center text-sm text-zinc-500 pt-6"
         >
-          Results are always correct.
+          <span className="text-[#FF5FCF] font-medium">
+            Results are always correct.
+          </span>
           <br />
           Emotionally.
         </motion.div>
