@@ -1,0 +1,66 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Sparkles, Calculator, Plane, Heart } from "lucide-react";
+
+const calculators = [
+  {
+    title: "Basically Free",
+    href: "/calculators/basically-free",
+    icon: Sparkles,
+  },
+  {
+    title: "Cost Per Use",
+    href: "/calculators/cost-per-use",
+    icon: Calculator,
+  },
+  {
+    title: "Travel Math",
+    href: "/calculators/travel-math",
+    icon: Plane,
+  },
+  {
+    title: "Self-Care Math",
+    href: "/calculators/self-care",
+    icon: Heart,
+  },
+];
+
+export default function CalculatorFooter({
+  current,
+}: {
+  current?: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2 }}
+      className="mt-16 pt-8 border-t border-zinc-200 space-y-4"
+    >
+      <p className="text-center text-sm text-zinc-500">
+        Need more reassurance?
+      </p>
+
+      <div className="flex flex-wrap justify-center gap-3">
+        {calculators
+          .filter((c) => c.href !== current)
+          .map((calc) => {
+            const Icon = calc.icon;
+
+            return (
+              <Link
+                key={calc.href}
+                href={calc.href}
+                className="flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:border-zinc-400 hover:bg-zinc-50 transition"
+              >
+                <Icon className="h-4 w-4" />
+                {calc.title}
+              </Link>
+            );
+          })}
+      </div>
+    </motion.div>
+  );
+}
