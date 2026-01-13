@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Sparkles, Calculator, Plane, Heart } from "lucide-react";
+import {
+  Sparkles,
+  Calculator,
+  Plane,
+  Heart,
+  MessageCircle,
+} from "lucide-react";
 
 const calculators = [
   {
@@ -14,6 +20,11 @@ const calculators = [
     title: "Cost Per Use",
     href: "/calculators/cost-per-use",
     icon: Calculator,
+  },
+  {
+    title: "Cost & Compliments",
+    href: "/calculators/cost-and-compliments",
+    icon: MessageCircle,
   },
   {
     title: "Travel Math",

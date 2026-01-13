@@ -6,6 +6,7 @@ import {
   Sparkles,
   Plane,
   Heart,
+  MessageCircle,
 } from "lucide-react";
 import Link from "next/link";
 import Nav from "../components/Nav";
@@ -22,6 +23,12 @@ const calculators = [
     description: "Divide the price until it becomes responsible.",
     icon: Calculator,
     href: "/calculators/cost-per-use",
+  },
+  {
+    title: "Cost & Compliments",
+    description: "Compliments are a currency. Let’s price them.",
+    icon: MessageCircle,
+    href: "/calculators/cost-and-compliments",
   },
   {
     title: "Travel Math",
